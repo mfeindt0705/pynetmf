@@ -13,10 +13,10 @@ from getpass import getpass
 ios3 = {"host": "cisco3.lasthop.io",
          "username": "pyclass",
          "password": getpass(prompt='Bitte Password eingeben: '),
-         "device_type": "cisco_ios"}
+         "device_type": "cisco_ios",
+	 "session_log": "my_session.txt"}
 
 ios_connect = ConnectHandler(**ios3)
-print(str(ios_connect.find_prompt()))
 output = ios_connect.send_command("show version")
 with open("my_version.txt", 'w') as f:
     f.write(output)
