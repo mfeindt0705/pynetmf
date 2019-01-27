@@ -9,4 +9,5 @@ Simply print the router prompt back from this device to verify you are connectin
 from netmiko import ConnectHandler
 from getpass import getpass
 
+nxhost1 = {}
 
