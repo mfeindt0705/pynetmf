@@ -7,9 +7,6 @@ Save this output to a file in the current working directory.
 from netmiko import ConnectHandler
 from getpass import getpass
 
-from netmiko import ConnectHandler
-from getpass import getpass
-
 ios3 = {"host": "cisco3.lasthop.io",
          "username": "pyclass",
          "password": getpass(prompt='Bitte Password eingeben: '),
