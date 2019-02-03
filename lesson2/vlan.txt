@@ -1,0 +1,13 @@
+vlan 100
+name unused
+exit
+vlan 200
+name server_admin
+exit
+vlan 201
+name server_service
+exit
+vlan 202
+name server_backup
+exit
+
