@@ -36,7 +36,7 @@ pip-log.txt
 pip-delete-this-directory.txt
 
 # Script Output
-my_session.txt
+my_session*.txt
 my_version.txt
 my_changes.txt
 
