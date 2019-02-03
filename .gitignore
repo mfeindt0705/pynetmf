@@ -38,6 +38,7 @@ pip-delete-this-directory.txt
 # Script Output
 my_session.txt
 my_version.txt
+my_changes.txt
 
 # Unit test / coverage reports
 htmlcov/
