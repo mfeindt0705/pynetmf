@@ -1,0 +1,15 @@
+Value Filldown ROUTER_ID ([0-9.]+)
+Value Filldown LOCAL_AS (\d+)
+Value NEIGHBOR ([0-9.]+)
+Value REMOTE_AS (\d+)
+Value UP_DOWN (\w+)
+Value STATE_PRFXRCVD (\S+)
+
+Start
+  ^BGP router identifier\s+${ROUTER_ID}\D+${LOCAL_AS}\s*$$ -> BgpNeighbors
+
+BgpNeighbors
+  ^${NEIGHBOR}\s+\d\s+${REMOTE_AS}\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+${UP_DOWN}\s+${STATE_PRFXRCVD} -> Record
+
+EOF
+

@@ -1,0 +1,17 @@
+Value PORT_NAME ([FGE]+\S*[Ethernet]+\S*)
+Value LINE_STATE (up|down)
+Value ADMIN_STATE (up|down)
+Value MAC_ADDRESS ([0-9a-f]{4}\.[0-9a-f]{4}\.[0-9a-f]{4})
+Value MTU (\d+)
+Value DUPLEX ((full|half)-duplex) 
+Value SPEED (\d+)
+
+Start
+  ^${PORT_NAME}\sis\s${LINE_STATE}
+  ^admin state is ${ADMIN_STATE} 
+  ^\s+Hardware.+address:\s${MAC_ADDRESS}
+  ^\s+MTU\s${MTU}
+  ^\s+${DUPLEX}, ${SPEED} -> Record
+
+EOF
+

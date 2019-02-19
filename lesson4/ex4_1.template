@@ -1,0 +1,14 @@
+Value MAC_ADDRESS ([0-9a-f:]+)
+Value IP_ADDRESS (\d+\.\d+\.\d+\.\d+)
+Value NAME (\S+)
+Value INTERFACE (\S+)
+
+Start
+  ^MAC.*Flags.*$$ -> ArpEntries
+
+ArpEntries
+  ^${MAC_ADDRESS}\s+${IP_ADDRESS}\s+${NAME}\s+${INTERFACE} -> Record
+
+EOF
+
+
