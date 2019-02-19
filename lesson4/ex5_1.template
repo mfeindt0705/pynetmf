@@ -1,0 +1,13 @@
+Value DEVICE_ID (\S+)
+Value LOCAL_INTF (\S+)
+Value CAPABILITY (\S+)
+Value REMOTE_PORT (\S+)
+
+Start
+  ^Device.*ID.*ID\s+$$ -> NeighborEntries
+
+NeighborEntries
+  ^${DEVICE_ID}\s+${LOCAL_INTF}\s+\d+\s+${CAPABILITY}\s+${REMOTE_PORT} -> Record
+
+EOF
+
