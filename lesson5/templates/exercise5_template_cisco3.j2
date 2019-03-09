@@ -1,0 +1,120 @@
+version 16.8
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+!
+hostname cisco3
+!
+boot-start-marker
+boot-end-marker
+!
+!
+logging buffered 10000
+no logging console
+enable secret 5 $1$CVrv$mxcKWNbk323lXwxbxGk9I/
+!
+{% include 'aaa.j2' %}
+!
+!
+!
+!
+!
+!
+{% include 'timezone.j2' %}
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+!
+!
+multilink bundle-name authenticated
+!
+!
+no license smart enable
+archive
+    path flash:cisco3-cfg
+file prompt quiet
+!
+diagnostic bootup level minimal
+!
+spanning - tree extend system - id
+netconf-yang
+!
+!
+username pyclass privilege 15 secret 5 $1$7t3j$Fiq6/Z/PT7PjYbPgnGQCe.
+!
+redundancy
+    mode none
+!
+!
+vlan internal allocation policy ascending
+!
+lldp run
+!
+!
+!
+!
+interface GigabitEthernet0/0/0
+    ip address 10.220.88.22 255.255.255.0
+    negotiation auto
+!
+interface GigabitEthernet0/0/1
+    no ip address
+    shutdown
+    negotiation auto
+!
+interface GigabitEthernet0/1/0
+!
+interface GigabitEthernet0/1/1
+!
+interface GigabitEthernet0/1/2
+!
+interface GigabitEthernet0/1/3
+!
+interface Vlan1
+    no ip address
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+ip route 0.0.0.0 0.0.0.0 10.220.88.1
+ip ssh version 2
+ip scp server enable
+!
+!
+!
+!
+!
+control-plane
+!
+!
+line con 0
+    logging synchronous
+    transport input none
+    stopbits 1
+line vty 0 4
+    exec-timeout 20 0
+    transport input telnet ssh
+!
+{% include 'ntp.j2' %}
+!
+wsma agent exec
+!
+wsma agent config
+!
+wsma agent filesys
+!
+wsma agent notify
+!
+!
+end
+

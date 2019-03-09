@@ -1,0 +1,20 @@
+
+{% for my_dict in my_vars %}
+​vrf definition {{ my_dict.vrf_name }}
+ rd {{ my_dict.rd_num }}:1
+ !
+{%- if my_dict.ipv4 is defined %}
+ address-family ipv4
+  route-target export {{ my_dict.rd_num }}:1
+  route-target import {{ my_dict.rd_num }}:1
+ exit-address-family
+{%- endif %}
+ !
+{%- if my_dict.ipv6 is defined %}
+ address-family ipv6
+  route-target export {{ my_dict.rd_num }}:1
+  route-target import {{ my_dict.rd_num }}:1
+ exit-address-family
+{%- endif %}
+{% endfor %}
+
