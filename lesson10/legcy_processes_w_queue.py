@@ -10,7 +10,8 @@ from multiprocessing import Process, Queue
 from datetime import datetime
 from netmiko import ConnectHandler
 from my_devices import device_list as devices
-
+import warnings
+warnings.filterwarnings(action='ignore', module='.*paramiko.*')
 
 def show_version_queue(a_device, output_q):
     """
