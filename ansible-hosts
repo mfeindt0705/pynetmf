@@ -1,0 +1,17 @@
+[all:vars]
+ansible_connection=local
+ansible_python_interpreter=/home/mfeindt/myenv/bin/python
+ansible_user=admin
+ansible_ssh_pass=XXXXXXX
+
+[local]
+localhost ansible_connection=local
+
+[cisco]
+iosv-r1 ansible_host=iosv-r1.gns3.lab.io
+iosv-s1 ansible_host=iosv-s1.gns3.lab.io
+iosv-s2 ansible_host=iosv-s2.gns3.lab.io
+
+[nxos]
+nxos-s1 ansible_host=nxos-s1.gns3.lab.io
+nxos-s2 ansible_host=nxos-s2.gns3.lab.io

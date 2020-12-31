@@ -1,0 +1,34 @@
+---
+
+# Dictionaries are devices
+iosv-r1:
+  device_type: cisco_ios
+  ip: 192.168.253.254
+  username: admin
+  password: xxxxx
+
+iosv-s1:
+  device_type: cisco_ios
+  ip: 192.168.125.71
+  username: admin
+  password: xxxxx
+
+iosv-s2:
+  device_type: cisco_ios
+  ip: 192.168.125.72
+  username: admin
+  password: xxxxx
+
+# Lists are groups of devices
+ios:
+  - iosv-r1
+  - iosv-s1
+  - iosv-s2
+
+nxos:
+  - nxos-s1
+  - nxos-s2
+
+iosxe:
+  - iosxe-r1
+
